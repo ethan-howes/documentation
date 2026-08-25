@@ -73269,6 +73269,12 @@ components:
           items:
             $ref: "#/components/schemas/ObservabilityPipelineConfigDestinationItem"
           type: array
+        end_to_end_acknowledgements:
+          description: |-
+            Enables end-to-end event delivery confirmation for the pipeline. When enabled, sources confirm receipt only after all destinations have successfully received the events.
+            Requires Observability Pipelines Worker 2.14 or later. All configured sources must support this behavior.
+          example: true
+          type: boolean
         pipeline_type:
           $ref: "#/components/schemas/ObservabilityPipelineConfigPipelineType"
         processor_groups:
@@ -179442,6 +179448,7 @@ paths:
                                 inputs:
                                   - datadog-agent-source
                                 type: datadog_logs
+                            end_to_end_acknowledgements: true
                             sources:
                               - id: datadog-agent-source
                                 type: datadog_agent
@@ -179482,6 +179489,7 @@ paths:
                             inputs:
                               - my-processor-group
                             type: datadog_logs
+                        end_to_end_acknowledgements: true
                         pipeline_type: logs
                         processor_groups:
                           - enabled: true
@@ -179523,6 +179531,7 @@ paths:
                               inputs:
                                 - datadog-agent-source
                               type: datadog_logs
+                          end_to_end_acknowledgements: true
                           sources:
                             - id: datadog-agent-source
                               type: datadog_agent
@@ -179568,6 +179577,7 @@ paths:
                             inputs:
                               - my-processor-group
                             type: datadog_logs
+                        end_to_end_acknowledgements: true
                         pipeline_type: logs
                         processor_groups:
                           - enabled: true
@@ -179686,6 +179696,7 @@ paths:
                               inputs:
                                 - datadog-agent-source
                               type: datadog_logs
+                          end_to_end_acknowledgements: true
                           sources:
                             - id: datadog-agent-source
                               type: datadog_agent
@@ -179735,6 +179746,7 @@ paths:
                             inputs:
                               - my-processor-group
                             type: datadog_logs
+                        end_to_end_acknowledgements: true
                         pipeline_type: logs
                         processor_groups:
                           - enabled: true
@@ -179777,6 +179789,7 @@ paths:
                               inputs:
                                 - datadog-agent-source
                               type: datadog_logs
+                          end_to_end_acknowledgements: true
                           sources:
                             - id: datadog-agent-source
                               type: datadog_agent
